@@ -1,0 +1,39 @@
+.reveal {
+  opacity: 0;
+  transition:
+    opacity 850ms var(--ease-out),
+    transform 850ms var(--ease-out);
+}
+
+.up {
+  transform: translateY(30px);
+}
+
+.right {
+  transform: translateX(36px);
+}
+
+.left {
+  transform: translateX(-36px);
+}
+
+.fade {
+  transform: none;
+}
+
+.delay100 {
+  transition-delay: 100ms;
+}
+
+.delay120 {
+  transition-delay: 120ms;
+}
+
+.delay150 {
+  transition-delay: 150ms;
+}
+
+.visible {
+  opacity: 1;
+  transform: none;
+}

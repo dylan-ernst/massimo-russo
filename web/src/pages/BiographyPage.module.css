@@ -1,0 +1,220 @@
+.bio {
+  background: var(--color-bg);
+  padding: var(--section-y-page) var(--gutter);
+}
+
+.split {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: var(--split-gap);
+  align-items: start;
+}
+
+.lead {
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--color-white);
+  max-width: 50ch;
+  margin: 0 0 28px;
+}
+
+.paragraph {
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--white-70);
+  max-width: 56ch;
+  margin: 0 0 18px;
+}
+
+.paragraph:last-child {
+  margin-bottom: 0;
+}
+
+.photos {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 2.4vw, 28px);
+}
+
+.portrait {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.secondaryWrap {
+  width: 82%;
+  align-self: flex-end;
+}
+
+.secondary {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+/* Education logos, drawn white on black whatever colours they were uploaded in */
+.education {
+  background: var(--color-bg);
+  border-top: 1px solid var(--line);
+  padding: clamp(28px, 4vw, 44px) var(--gutter);
+}
+
+.educationInner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(18px, 2.6vw, 26px);
+}
+
+.educationLabel {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--white-45);
+  margin: 0;
+}
+
+.logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(40px, 8vw, 100px);
+}
+
+.logo {
+  display: block;
+  height: clamp(112px, 14vw, 162px);
+  width: auto;
+  filter: grayscale(1) invert(1);
+  mix-blend-mode: screen;
+  opacity: 0.9;
+}
+
+.logoName {
+  display: block;
+  font-size: clamp(16px, 1.8vw, 20px);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white-75);
+}
+
+/* Milestones carousel */
+.milestones {
+  background: var(--color-bg);
+  padding: var(--section-y-page) 0;
+}
+
+.milestonesHeaderWrap {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.milestonesHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: var(--heading-gap);
+}
+
+.arrows {
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
+}
+
+.arrow {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  border: 1px solid var(--white-30);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background 250ms ease, color 250ms ease, border-color 250ms ease;
+}
+
+.arrow:hover {
+  background: var(--color-text);
+  color: var(--color-bg);
+  border-color: var(--color-text);
+}
+
+.track {
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 8px var(--gutter) 24px;
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.cards {
+  display: flex;
+  gap: clamp(14px, 2vw, 24px);
+  min-width: min-content;
+}
+
+.card {
+  flex: 0 0 auto;
+  height: 100%;
+  width: clamp(220px, 24vw, 300px);
+  border: 1px solid var(--white-20);
+  padding: clamp(20px, 2.4vw, 30px);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: border-color 350ms ease, transform 350ms ease;
+}
+
+.card:hover {
+  border-color: rgba(255, 255, 255, 0.55);
+  transform: translateY(-4px);
+}
+
+.year {
+  font-size: clamp(30px, 3.4vw, 42px);
+  font-weight: 900;
+  line-height: 1;
+  color: var(--color-accent);
+}
+
+.label {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--white-55);
+  margin-bottom: 7px;
+}
+
+.cardTitle {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.35;
+  margin: 0;
+  color: var(--color-white);
+}
+
+.detail {
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--white-55);
+  margin: 0;
+}

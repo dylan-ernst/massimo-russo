@@ -1,0 +1,89 @@
+@import './tokens.css';
+@import './buttons.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  overflow-x: hidden;
+  /* Scrolling stays, the native scrollbar does not */
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--color-accent);
+}
+
+a:hover {
+  color: var(--color-text);
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-white);
+}
+
+img {
+  max-width: 100%;
+}
+
+/* Author display rules would otherwise beat the browser's own [hidden] rule */
+[hidden] {
+  display: none !important;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Small uppercase label above headings */
+.eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin: 0;
+}
+
+.section-title {
+  font-size: clamp(30px, 4vw, 56px);
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
+  margin: 0;
+  color: var(--color-white);
+}
+
+/* Black and white until hovered */
+.mono-hover {
+  filter: grayscale(1);
+  transition: filter var(--fade-slow);
+}
+
+.mono-hover:hover {
+  filter: grayscale(0);
+}

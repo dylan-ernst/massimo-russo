@@ -1,0 +1,33 @@
+/* Design tokens from the design mockups. Change the look here, not in components. */
+:root {
+  --color-bg: #0b0b0b;
+  --color-text: #f5f5f5;
+  --color-white: #ffffff;
+  --color-accent: #3b6ea5;
+
+  --white-75: rgba(255, 255, 255, 0.75);
+  --white-70: rgba(255, 255, 255, 0.7);
+  --white-65: rgba(255, 255, 255, 0.65);
+  --white-60: rgba(255, 255, 255, 0.6);
+  --white-55: rgba(255, 255, 255, 0.55);
+  --white-50: rgba(255, 255, 255, 0.5);
+  --white-45: rgba(255, 255, 255, 0.45);
+  --white-40: rgba(255, 255, 255, 0.4);
+  --white-30: rgba(255, 255, 255, 0.3);
+  --white-25: rgba(255, 255, 255, 0.25);
+  --white-20: rgba(255, 255, 255, 0.2);
+  --line: rgba(255, 255, 255, 0.16);
+
+  --font: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+
+  --nav-height: 54px;
+  --gutter: clamp(20px, 5vw, 64px);
+  --section-y: clamp(72px, 11vw, 150px);
+  --section-y-page: clamp(72px, 10vw, 130px);
+  --content-max: 1200px;
+  --split-gap: clamp(36px, 6vw, 90px);
+  --heading-gap: clamp(32px, 5vw, 56px);
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --fade-slow: 600ms ease;
+}

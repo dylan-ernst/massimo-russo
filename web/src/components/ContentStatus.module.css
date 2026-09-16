@@ -1,0 +1,31 @@
+.box {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: calc(var(--nav-height) + 20px) var(--gutter) 40px;
+  text-align: center;
+  background: var(--color-bg);
+}
+
+.title {
+  font-size: clamp(20px, 2.4vw, 28px);
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 0;
+  color: var(--color-white);
+}
+
+.detail {
+  font-size: 14px;
+  color: var(--white-65);
+  margin: 0;
+}
+
+.technical {
+  font-size: 11px;
+  color: var(--white-40);
+  margin: 12px 0 0;
+}

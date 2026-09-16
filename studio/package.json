@@ -1,0 +1,25 @@
+{
+  "name": "massimo-russo-studio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "sanity dev",
+    "build": "sanity build",
+    "deploy": "sanity deploy",
+    "seed": "sanity exec seed/import.ts --with-user-token",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@sanity/vision": "^6.14.1",
+    "@types/node": "^22.20.3",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "sanity": "^6.14.1",
+    "styled-components": "^6.5.3"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "typescript": "~6.0.2"
+  }
+}

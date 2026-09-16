@@ -1,0 +1,17 @@
+.links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  color: var(--white-60);
+}
+
+.link {
+  display: grid;
+  place-items: center;
+  color: inherit;
+  transition: color 250ms ease;
+}
+
+.link:hover {
+  color: var(--color-white);
+}
