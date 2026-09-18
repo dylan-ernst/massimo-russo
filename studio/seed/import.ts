@@ -1,6 +1,8 @@
 // Loads seed/content.ts into the configured Sanity dataset.
 // Run from the studio folder: npm run seed
-// Safe to re-run: documents use fixed ids and are replaced, and Sanity dedupes identical image uploads.
+// Only creates documents that do not exist yet, so edits made in Studio are kept.
+// To wipe edits and restore the seed exactly: npm run seed -- --replace
+// Sanity dedupes identical image uploads, so re-running does not duplicate assets.
 import { createReadStream } from 'node:fs'
 import { randomUUID } from 'node:crypto'
 import path from 'node:path'
@@ -47,8 +49,9 @@ async function image(seedImage: SeedImage) {
 const withKey = <T extends object>(item: T) => ({ _key: randomUUID().slice(0, 12), ...item })
 
 async function main() {
-  const { siteSettings, homePage, biographyPage, galleryPage, contactPage, events } = seed
-  console.log(`Seeding ${client.config().projectId}/${client.config().dataset}`)
+  const { siteSettings, homePage, biographyPage, galleryPage, schedulePage, contactPage, events } = seed
+  const replace = process.argv.includes('--replace')
+  console.log(`Seeding ${client.config().projectId}/${client.config().dataset} (${replace ? 'replacing everything' : 'missing documents only'})`)
 
   const docs = [
     { _id: 'siteSettings', _type: 'siteSettings', ...siteSettings },
@@ -87,14 +90,23 @@ async function main() {
       videos: galleryPage.videos.map((v) => withKey({ _type: 'video', ...v })),
       photos: await Promise.all(galleryPage.photos.map(async (p) => withKey(await image(p)))),
     },
+    {
+      _id: 'schedulePage',
+      _type: 'schedulePage',
+      heroImage: await image(schedulePage.heroImage),
+      seasonLabel: schedulePage.seasonLabel,
+    },
     { _id: 'contactPage', _type: 'contactPage', image: await image(contactPage.image) },
     ...events.map((e, i) => ({ _id: `seed-event-${i + 1}`, _type: 'event', ...e })),
   ]
 
+  const existing = new Set(await client.fetch<string[]>('*[_id in $ids]._id', { ids: docs.map((doc) => doc._id) }))
+  const toWrite = replace ? docs : docs.filter((doc) => !existing.has(doc._id))
+
   const transaction = client.transaction()
-  for (const doc of docs) transaction.createOrReplace(JSON.parse(JSON.stringify(doc)))
+  for (const doc of toWrite) transaction.createOrReplace(JSON.parse(JSON.stringify(doc)))
   await transaction.commit()
-  console.log(`Done: ${docs.length} documents written.`)
+  console.log(`Done: ${toWrite.length} written, ${docs.length - toWrite.length} left as they were.`)
 }
 
 main().catch((error) => {

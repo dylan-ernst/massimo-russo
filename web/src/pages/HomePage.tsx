@@ -1,10 +1,11 @@
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { ContentStatus } from '../components/ContentStatus'
+import { EventRow } from '../components/EventRow'
 import { Reveal } from '../components/Reveal'
-import type { PerformanceEvent, SiteSettings } from '../content/types'
+import type { SiteSettings } from '../content/types'
 import { useContent } from '../content/useContent'
-import { eventDateParts, eventDetails, upcomingEvents } from '../lib/events'
+import { upcomingEvents } from '../lib/events'
 import { focalStyle, sizedUrl } from '../lib/images'
 import { useDocumentTitle } from '../lib/useDocumentTitle'
 import { useParallax } from '../lib/useParallax'
@@ -81,7 +82,7 @@ export function HomePage({ settings }: { settings: SiteSettings }) {
             </Link>
           </div>
           {events.length > 0 ? (
-            events.map((event) => <EventRow key={event._id} event={event} />)
+            events.map((event) => <EventRow key={event._id} event={event} variant="compact" />)
           ) : (
             <p className={styles.noEvents}>New performances will be announced soon.</p>
           )}
@@ -149,28 +150,5 @@ function splitName(name: string) {
       <br />
       {rest.join(' ')}
     </>
-  )
-}
-
-function EventRow({ event }: { event: PerformanceEvent }) {
-  const { day, monthYear } = eventDateParts(event)
-  return (
-    <Reveal className={styles.eventRow}>
-      <div className={styles.eventDate}>
-        <div className={styles.eventDay}>{day}</div>
-        <div className={styles.eventMonth}>{monthYear}</div>
-      </div>
-      <div className={styles.eventInfo}>
-        <h3 className={styles.eventTitle}>{event.title}</h3>
-        <p className={styles.eventDetails}>{eventDetails(event)}</p>
-      </div>
-      {event.ticketsUrl ? (
-        <a href={event.ticketsUrl} target="_blank" rel="noopener noreferrer" className={`btn btn-small ${styles.eventTickets}`}>
-          Tickets
-        </a>
-      ) : (
-        <span />
-      )}
-    </Reveal>
   )
 }

@@ -34,6 +34,8 @@ jobs:
           # Set under Settings > Secrets and variables > Actions > Variables
           VITE_SANITY_PROJECT_ID: ${{ vars.SANITY_PROJECT_ID }}
           VITE_SANITY_DATASET: ${{ vars.SANITY_DATASET || 'production' }}
+          # Set VITE_BASE to / when the custom domain is live
+          VITE_BASE: ${{ vars.VITE_BASE }}
       # SPA fallback: GitHub Pages serves 404.html for unknown paths, so deep links like /biography load the app
       - run: cp dist/index.html dist/404.html
       - uses: actions/upload-pages-artifact@v3

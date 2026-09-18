@@ -1,6 +1,7 @@
 import type { ContentKey } from './types'
 
 const image = '{ "url": asset->url, alt, hotspot{ x, y } }'
+const events = '*[_type == "event"]{ _id, title, date, dateNote, time, venue, program, ticketsUrl }'
 
 export const queries: Record<ContentKey, string> = {
   settings: `*[_id == "siteSettings"][0]{
@@ -15,7 +16,7 @@ export const queries: Record<ContentKey, string> = {
     scheduleBackground${image},
     contactBackground${image},
     "galleryPreview": *[_id == "galleryPage"][0].photos[0...3]{ _key, "url": asset->url, alt, hotspot{ x, y } },
-    "events": *[_type == "event"]{ _id, title, date, dateNote, time, venue, program, ticketsUrl }
+    "events": ${events}
   }`,
 
   biography: `*[_id == "biographyPage"][0]{
@@ -32,6 +33,12 @@ export const queries: Record<ContentKey, string> = {
     heroImage${image},
     videos[]{ _key, title, url },
     photos[]{ _key, "url": asset->url, alt, hotspot{ x, y } }
+  }`,
+
+  schedule: `*[_id == "schedulePage"][0]{
+    heroImage${image},
+    seasonLabel,
+    "events": ${events}
   }`,
 
   contact: `*[_id == "contactPage"][0]{ image${image} }`,

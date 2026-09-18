@@ -102,6 +102,11 @@ export const galleryPage = {
   ],
 }
 
+export const schedulePage = {
+  heroImage: placeholder.orchestra,
+  seasonLabel: 'Season 2026\u201327',
+}
+
 export const contactPage = {
   image: placeholder.handsAtKeyboard,
 }

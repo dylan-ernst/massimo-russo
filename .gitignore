@@ -8,11 +8,8 @@ studio/.sanity/
 .env.*
 !.env.example
 
-# Raw photos and mockup exports Massimo sent (optimised copies live in studio/seed/images)
+# Full-size photos Massimo sent (optimised copies live in studio/seed/images)
 /Massimo Photos/
-/ChatGPT Image*.png
-/transparent*.png
-/1.-Sydney-Portait-Mono-1.jpg
 
 # OS / editor
 .DS_Store

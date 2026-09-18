@@ -5,6 +5,7 @@ const singletons = [
   { id: 'homePage', title: 'Home page' },
   { id: 'biographyPage', title: 'Biography page' },
   { id: 'galleryPage', title: 'Gallery page' },
+  { id: 'schedulePage', title: 'Schedule page' },
   { id: 'contactPage', title: 'Contact page' },
 ]
 

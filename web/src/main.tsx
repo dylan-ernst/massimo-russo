@@ -9,7 +9,8 @@ if (!root) throw new Error('Missing #root element in index.html')
 
 createRoot(root).render(
   <StrictMode>
-    <BrowserRouter>
+    {/* Keeps routes working under the /<repo>/ path GitHub Pages serves */}
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <App />
     </BrowserRouter>
   </StrictMode>,

@@ -61,6 +61,12 @@ export type GalleryContent = {
   photos?: (SiteImage & { _key: string })[] | null
 }
 
+export type ScheduleContent = {
+  heroImage: SiteImage
+  seasonLabel?: string | null
+  events: PerformanceEvent[]
+}
+
 export type ContactContent = { image: SiteImage }
 
 export type ContentMap = {
@@ -68,6 +74,7 @@ export type ContentMap = {
   home: HomeContent
   biography: BiographyContent
   gallery: GalleryContent
+  schedule: ScheduleContent
   contact: ContactContent
 }
 

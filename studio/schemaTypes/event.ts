@@ -10,7 +10,7 @@ export const event = defineType({
       name: 'date',
       title: 'Date',
       type: 'date',
-      description: 'Leave empty if not confirmed yet. Past performances hide themselves.',
+      description: 'Leave empty if not confirmed yet. Once the date passes, it moves to Past Performances.',
     }),
     defineField({
       name: 'dateNote',

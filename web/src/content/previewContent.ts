@@ -18,6 +18,8 @@ function toImage({ file, url, alt, hotspot }: SeedImage): SiteImage {
   return { url: src, alt, hotspot }
 }
 
+const seedEvents = seed.events.map((e, i) => ({ _id: `seed-event-${i + 1}`, ...e }))
+
 const keyed = <T extends object>(item: T, index: number) => ({ _key: `seed-${index}`, ...item })
 
 export const previewContent: ContentMap = {
@@ -29,7 +31,7 @@ export const previewContent: ContentMap = {
     scheduleBackground: toImage(seed.homePage.scheduleBackground),
     contactBackground: toImage(seed.homePage.contactBackground),
     galleryPreview: seed.galleryPage.photos.slice(0, 3).map((p, i) => keyed(toImage(p), i)),
-    events: seed.events.map((e, i) => ({ _id: `seed-event-${i + 1}`, ...e })),
+    events: seedEvents,
   },
   biography: {
     ...seed.biographyPage,
@@ -43,6 +45,11 @@ export const previewContent: ContentMap = {
     heroImage: toImage(seed.galleryPage.heroImage),
     videos: seed.galleryPage.videos.map(keyed),
     photos: seed.galleryPage.photos.map((p, i) => keyed(toImage(p), i)),
+  },
+  schedule: {
+    heroImage: toImage(seed.schedulePage.heroImage),
+    seasonLabel: seed.schedulePage.seasonLabel,
+    events: seedEvents,
   },
   contact: { image: toImage(seed.contactPage.image) },
 }

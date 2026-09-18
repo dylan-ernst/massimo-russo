@@ -10,6 +10,7 @@ import { ContactPage } from './pages/ContactPage'
 import { GalleryPage } from './pages/GalleryPage'
 import { HomePage } from './pages/HomePage'
 import { NotFoundPage } from './pages/NotFoundPage'
+import { SchedulePage } from './pages/SchedulePage'
 
 export function App() {
   const settings = useContent('settings')
@@ -20,6 +21,7 @@ export function App() {
       <Route element={<Layout settings={settings.data} />}>
         <Route index element={<HomePage settings={settings.data} />} />
         <Route path="biography" element={<BiographyPage settings={settings.data} />} />
+        <Route path="schedule" element={<SchedulePage settings={settings.data} />} />
         <Route path="gallery" element={<GalleryPage settings={settings.data} />} />
         <Route path="contact" element={<ContactPage settings={settings.data} />} />
         <Route path="*" element={<NotFoundPage />} />
