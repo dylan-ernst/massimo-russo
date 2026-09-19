@@ -69,8 +69,7 @@ export const biographyPage = {
   secondaryImage: anePrize,
   education: [
     { name: 'The University of Sydney', logo: 'usyd-logo-ink.png' as string | undefined },
-    // The UNSW logo is not in seed/images yet, so the name shows until one is uploaded
-    { name: 'UNSW Sydney', logo: undefined as string | undefined },
+    { name: 'UNSW Sydney', logo: 'unsw-logo.png' as string | undefined },
   ],
   milestones: [
     { year: '2023', label: 'Diploma', title: 'Licentiate Piano Diploma', detail: 'November 2023. Awarded during piano studies with Dr Christine J. Logan, alongside a Bachelor of Actuarial Studies at UNSW.' },
