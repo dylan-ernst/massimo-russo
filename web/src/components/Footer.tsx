@@ -32,7 +32,7 @@ export function Footer({ settings, showSocial = true }: Props) {
             &copy; {new Date().getFullYear()} {settings.name}. All rights reserved.
           </p>
           <a href="https://dylanernst.dev" target="_blank" rel="noopener noreferrer" className={styles.credit}>
-            Site by Dylan Ernst
+            Designed by Dylan Ernst
           </a>
         </div>
       </div>

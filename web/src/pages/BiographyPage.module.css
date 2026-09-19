@@ -155,6 +155,10 @@
 
 .track {
   overflow-x: auto;
+  /* A single auto axis makes the other one scrollable too, which turned the reveal
+     offset into a scroll-within-a-scroll. Clip vertically and keep the page scrolling. */
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
   scrollbar-width: none;
   padding: 8px var(--gutter) 24px;
 }
